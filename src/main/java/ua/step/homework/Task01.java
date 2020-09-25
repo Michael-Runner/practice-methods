@@ -4,8 +4,8 @@ package ua.step.homework;
  * Написать и методы работы с квадратными матрицами (матрицы
  * представить в виде двухмерных массивов). 
  * Должны присутствовать методы:
- * • создания единичной (диагональной) матрицы (метод createOne)
- * • создания нулевой матрицы (метод createNull)
+ * • создания единичной (диагональной) матрицы (метод createOne)+
+ * • создания нулевой матрицы (метод createNull)+
  * • сложение матриц (метод sumMatrix)
  * • умножения матриц (метод productMatrix)
  * • умножение матрицы на скаляр (метод productMatrix)
@@ -16,6 +16,16 @@ public class Task01 {
 
 	public static void main(String[] args) {
 		// TODO: Проверяйте методы здесь
+		int[][]arr = createOne(5,5);
+		printMatrix(arr);
+
+		arr = createNull(5, 5);
+		printMatrix(arr);
+
+		arr = sumMatrix(arr, arr);
+		printMatrix(arr);
+
+
 	}
 
 	/**
@@ -24,9 +34,22 @@ public class Task01 {
 	 * @param m - количество колонок
 	 * @return единичную (диагональную) матрицу
 	 */
+
 	public static int[][] createOne (int n, int m) {
-		// TODO: удалите исключение и пишите здесь код
-		throw new RuntimeException("Not implemented yet");
+		int [][]mas = new int[n][m];
+
+		for(int i=0; i<mas.length; i++)
+		{
+			for(int j=0; j<mas[i].length; j++)
+			{
+				if(i==j)
+				{
+					mas[i][j] = 1;
+				}
+			}
+		}
+
+		return mas;
 	}
 
 	/**
@@ -36,8 +59,7 @@ public class Task01 {
 	 * @return нулевую матрицу
 	 */
 	public static int[][] createNull (int n, int m) {
-		// TODO: удалите исключение и пишите здесь код
-		throw new RuntimeException("Not implemented yet");
+		return new int[n][m];
 	}
 
 	/**
@@ -47,8 +69,14 @@ public class Task01 {
 	 * @return сумму двух матриц
 	 */
 	public static int[][] sumMatrix(int[][] one, int[][] two) {
-		// TODO: удалите исключение и пишите здесь код
-		throw new RuntimeException("Not implemented yet");
+		for(int i=0; i<one.length; i++)
+		{
+			for(int j=0; j<one[i].length; j++)
+			{
+				one[i][j] = one[i][j]+two[i][j];
+			}
+		}
+		return one;
 	}
 
 	/**
@@ -88,7 +116,13 @@ public class Task01 {
 	 * @param matrix - матрица
 	 */
 	public static void printMatrix(int[][] matrix) {
-		// TODO: удалите исключение и пишите здесь код
-		throw new RuntimeException("Not implemented yet");
+		for(int[]row:matrix)
+		{
+			for(int cell:row)
+			{
+				System.out.print(cell + " ");
+			}
+			System.out.println();
+		}
 	}
 }
