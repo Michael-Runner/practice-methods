@@ -30,6 +30,9 @@ public class Task01 {
 
 		arr = productMatrix(arr, 5);
 		printMatrix(arr);
+
+		int det = determinant(arr);
+		System.out.println(det);
 	}
 
 	/**
@@ -133,8 +136,51 @@ public class Task01 {
 	 * @return детерминант матрицы
 	 */
 	public static int determinant(int[][] matrix) {
-		// TODO: удалите исключение и пишите здесь код
-		throw new RuntimeException("Not implemented yet");
+		int det = 0;
+
+		if(matrix.length==2 && matrix[0].length == 2)
+		{
+			det = matrix[0][0]*matrix[1][1]-matrix[1][0]*matrix[0][1];
+			return det;
+		}
+		else
+		{
+			for(int i = 0; i<matrix[0].length; i++)
+			{
+				if(i%2==0)
+				{
+					det = det + matrix[0][i]*det(matrix, i);
+				}
+				else
+				{
+					det = det - matrix[0][i]*det(matrix, i);
+				}
+			}
+		}
+
+		return det;
+	}
+
+	public static int det(int[][] matrix, int n)
+	{
+		int [][] mas = new int [2][2];
+		int counter_i = 0;
+		int counter_j = 0;
+		for(int i = 1; i<matrix.length; i++)
+		{
+			for(int j = 0; j<matrix[i].length; j++)
+			{
+				if(j!=n)
+				{
+					mas[counter_i][counter_j] = matrix[i][j];
+					counter_j++;
+				}
+			}
+			counter_i++;
+		}
+
+		int num = determinant(mas);
+		return num;
 	}
 
 	/**
