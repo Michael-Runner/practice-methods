@@ -27,6 +27,9 @@ public class Task01 {
 
 		arr = productMatrix(arr, arr);
 		printMatrix(arr);
+
+		arr = productMatrix(arr, 5);
+		printMatrix(arr);
 	}
 
 	/**
@@ -114,8 +117,14 @@ public class Task01 {
 	 * @return произведение матрицы на скаляр
 	 */
 	public static int[][] productMatrix(int[][] matrix, int num) {
-		// TODO: удалите исключение и пишите здесь код
-		throw new RuntimeException("Not implemented yet");
+		for(int i = 0; i < matrix.length; i++)
+		{
+			for(int j = 0; j< matrix.length; j++)
+			{
+				matrix[i][j] = matrix[i][j]*num;
+			}
+		}
+		return matrix;
 	}
 
 	/**
