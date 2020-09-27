@@ -25,7 +25,8 @@ public class Task01 {
 		arr = sumMatrix(arr, arr);
 		printMatrix(arr);
 
-
+		arr = productMatrix(arr, arr);
+		printMatrix(arr);
 	}
 
 	/**
@@ -86,8 +87,24 @@ public class Task01 {
 	 * @return произведение матриц
 	 */
 	public static int[][] productMatrix(int[][] one, int[][] two) {
-		// TODO: удалите исключение и пишите здесь код
-		throw new RuntimeException("Not implemented yet");
+		int[][] mas = new int[one.length][one.length];
+
+		for(int i =0; i< one.length; i++)
+		{
+			for(int j=0; j<one[i].length; j++)
+			{
+				int sum =0;
+				int counter = 0;
+				for (int n = 0; n < one[0].length; n++)
+				{
+					sum = sum + one[i][n] * two[counter][j];
+					counter++;
+				}
+				mas[i][j] = sum;
+			}
+		}
+
+		return mas;
 	}
 
 	/**
