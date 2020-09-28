@@ -165,9 +165,10 @@ public class Task01 {
 	{
 		int [][] mas = new int [2][2];
 		int counter_i = 0;
-		int counter_j = 0;
+
 		for(int i = 1; i<matrix.length; i++)
 		{
+			int counter_j = 0;
 			for(int j = 0; j<matrix[i].length; j++)
 			{
 				if(j!=n)
